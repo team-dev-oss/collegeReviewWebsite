@@ -51,7 +51,7 @@ const Index = () => {
       program: 'Engineering',
       year: 'Class of 2023',
       rating: 4,
-      review: 'Stanford's engineering program offers incredible resources and opportunities. The campus is beautiful, and the Silicon Valley location provides unique access to tech companies and internships. While the workload is demanding, the knowledge and skills gained are worth it.',
+      review: "Stanford's engineering program offers incredible resources and opportunities. The campus is beautiful, and the Silicon Valley location provides unique access to tech companies and internships. While the workload is demanding, the knowledge and skills gained are worth it.",
     },
     {
       name: 'David Rodriguez',
