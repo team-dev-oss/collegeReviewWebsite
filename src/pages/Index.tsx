@@ -3,6 +3,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Hero from '@/components/Hero';
 import ReviewCard from '@/components/ReviewCard';
+import { Card, CardContent } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
 
 const Index = () => {
   const featuredColleges = [
@@ -70,43 +72,133 @@ const Index = () => {
     { value: '500k+', label: 'Monthly Visitors' },
   ];
 
+  // Popular categories similar to AdmissionShala
+  const popularCategories = [
+    { name: 'Engineering', icon: '🔧', count: 1250 },
+    { name: 'Medical', icon: '⚕️', count: 950 },
+    { name: 'Business', icon: '💼', count: 1120 },
+    { name: 'Law', icon: '⚖️', count: 680 },
+    { name: 'Arts', icon: '🎨', count: 790 },
+    { name: 'Science', icon: '🔬', count: 850 },
+  ];
+
   return (
-    <>
-      <Hero />
-      
-      {/* Featured Colleges */}
-      <section className="py-16 bg-secondary">
+    <div className="bg-gray-50">
+      {/* Hero Banner - AdmissionShala style */}
+      <section className="bg-gradient-to-r from-blue-600 to-blue-800 py-16 lg:py-24">
         <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mx-auto text-center mb-12">
-            <h2 className="text-3xl font-display font-bold tracking-tight text-foreground mb-4">
-              Featured Colleges
-            </h2>
-            <p className="text-lg text-muted-foreground">
-              Explore top-rated institutions based on real student reviews
-            </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+            <div className="text-white animate-on-scroll">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
+                Find Your Perfect College
+              </h1>
+              <p className="text-lg md:text-xl mb-8 text-blue-100">
+                Explore thousands of student reviews, compare colleges, and make informed decisions about your future
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Link 
+                  to="/colleges"
+                  className="bg-white text-blue-700 hover:bg-blue-50 transition-colors px-6 py-3 rounded-md font-medium inline-flex items-center justify-center"
+                >
+                  Explore Colleges
+                </Link>
+                <Link 
+                  to="/reviews"
+                  className="bg-blue-700 text-white hover:bg-blue-800 transition-colors border border-blue-200 px-6 py-3 rounded-md font-medium inline-flex items-center justify-center"
+                >
+                  Read Reviews
+                </Link>
+              </div>
+            </div>
+            <div className="hidden md:block animate-on-scroll">
+              <img 
+                src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
+                alt="College students"
+                className="rounded-lg shadow-xl"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      {/* Search Bar Section */}
+      <section className="py-8 bg-white shadow-md relative -mt-6 rounded-t-3xl">
+        <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="bg-white rounded-lg shadow-lg p-6 animate-on-scroll">
+            <h2 className="text-2xl font-bold text-center mb-6">Find College Reviews</h2>
+            <div className="flex flex-col md:flex-row gap-4">
+              <div className="flex-1">
+                <input 
+                  type="text" 
+                  placeholder="Search by college name" 
+                  className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                />
+              </div>
+              <div>
+                <button className="w-full md:w-auto bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-md font-medium transition-colors">
+                  Search
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      {/* Popular Categories */}
+      <section className="py-12 bg-gray-50">
+        <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl font-bold text-center mb-10">Popular Categories</h2>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+            {popularCategories.map((category, index) => (
+              <Link 
+                key={category.name}
+                to={`/category/${category.name.toLowerCase()}`}
+                className="bg-white rounded-lg shadow-md p-4 text-center hover:shadow-lg transition-shadow animate-on-scroll"
+                style={{ transitionDelay: `${index * 50}ms` }}
+              >
+                <div className="text-3xl mb-2">{category.icon}</div>
+                <h3 className="font-medium text-gray-900">{category.name}</h3>
+                <p className="text-sm text-gray-600">{category.count} colleges</p>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+      
+      {/* Featured Colleges - Card Based Layout */}
+      <section className="py-12 bg-white">
+        <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center mb-10">
+            <h2 className="text-3xl font-bold">Featured Colleges</h2>
+            <Link 
+              to="/colleges"
+              className="text-blue-600 hover:text-blue-800 font-medium"
+            >
+              View All
+            </Link>
           </div>
           
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {featuredColleges.map((college, index) => (
-              <div 
+              <Card 
                 key={college.name}
-                className="animate-on-scroll bg-white border border-border rounded-xl shadow-sm overflow-hidden hover:shadow-md transition-shadow"
+                className="animate-on-scroll overflow-hidden hover:shadow-lg transition-shadow"
                 style={{ transitionDelay: `${index * 100}ms` }}
               >
-                <div className="aspect-[16/9] overflow-hidden">
+                <div className="aspect-video overflow-hidden">
                   <img 
                     src={college.imageSrc} 
                     alt={college.name} 
                     className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
                   />
                 </div>
-                <div className="p-5">
-                  <h3 className="text-lg font-medium text-foreground">{college.name}</h3>
-                  <p className="text-sm text-muted-foreground mb-3">{college.location}</p>
-                  <div className="flex justify-between items-center">
+                <CardContent className="p-5">
+                  <h3 className="text-lg font-bold text-gray-900 mb-1">{college.name}</h3>
+                  <p className="text-sm text-gray-600 mb-3">{college.location}</p>
+                  <div className="flex justify-between items-center mb-4">
                     <div className="flex items-center">
-                      <span className="text-sm font-medium text-foreground">{college.rating}</span>
-                      <div className="flex ml-1">
+                      <span className="text-sm font-medium text-gray-900 mr-1">{college.rating}</span>
+                      <div className="flex">
                         {Array.from({ length: 5 }).map((_, i) => (
                           <svg 
                             key={i} 
@@ -124,62 +216,30 @@ const Index = () => {
                           </svg>
                         ))}
                       </div>
+                      <span className="ml-2 text-xs text-gray-600">
+                        ({college.reviewCount})
+                      </span>
                     </div>
-                    <span className="text-xs text-muted-foreground">
-                      {college.reviewCount} reviews
-                    </span>
                   </div>
-                  <Link 
-                    to={`/colleges/${college.name.toLowerCase().replace(/\s+/g, '-')}`}
-                    className="mt-3 text-sm font-medium text-primary hover:text-primary/80 transition-colors flex items-center"
+                  <Button
+                    asChild
+                    className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 rounded"
                   >
-                    View details
-                    <svg 
-                      className="ml-1 h-4 w-4" 
-                      fill="none" 
-                      viewBox="0 0 24 24" 
-                      stroke="currentColor"
-                    >
-                      <path 
-                        strokeLinecap="round" 
-                        strokeLinejoin="round" 
-                        strokeWidth={2} 
-                        d="M9 5l7 7-7 7" 
-                      />
-                    </svg>
-                  </Link>
-                </div>
-              </div>
+                    <Link to={`/colleges/${college.name.toLowerCase().replace(/\s+/g, '-')}`}>
+                      View Details
+                    </Link>
+                  </Button>
+                </CardContent>
+              </Card>
             ))}
-          </div>
-          
-          <div className="mt-10 text-center">
-            <Link 
-              to="/colleges"
-              className="inline-flex items-center justify-center text-sm font-medium text-white bg-primary px-5 py-2.5 rounded-full hover:bg-primary/90 transition-colors"
-            >
-              View all colleges
-              <svg 
-                className="ml-2 h-4 w-4" 
-                fill="none" 
-                viewBox="0 0 24 24" 
-                stroke="currentColor"
-              >
-                <path 
-                  strokeLinecap="round" 
-                  strokeLinejoin="round" 
-                  strokeWidth={2} 
-                  d="M14 5l7 7m0 0l-7 7m7-7H3" 
-                />
-              </svg>
-            </Link>
           </div>
         </div>
       </section>
       
-      {/* Statistics */}
-      <section className="py-16 bg-background">
+      {/* Statistics - AdmissionShala Style */}
+      <section className="py-16 bg-gradient-to-r from-blue-600 to-blue-800 text-white">
         <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl font-bold text-center mb-12">By The Numbers</h2>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
             {stats.map((stat, index) => (
               <div 
@@ -187,10 +247,10 @@ const Index = () => {
                 className="animate-on-scroll flex flex-col items-center text-center"
                 style={{ transitionDelay: `${index * 100}ms` }}
               >
-                <p className="text-4xl md:text-5xl font-display font-bold text-primary mb-2">
+                <p className="text-4xl md:text-5xl font-bold mb-2 text-white">
                   {stat.value}
                 </p>
-                <p className="text-muted-foreground">{stat.label}</p>
+                <p className="text-blue-100">{stat.label}</p>
               </div>
             ))}
           </div>
@@ -200,13 +260,14 @@ const Index = () => {
       {/* Recent Reviews */}
       <section className="py-16 bg-white">
         <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mx-auto text-center mb-12">
-            <h2 className="text-3xl font-display font-bold tracking-tight text-foreground mb-4">
-              Recent Student Reviews
-            </h2>
-            <p className="text-lg text-muted-foreground">
-              Authentic experiences shared by real students
-            </p>
+          <div className="flex justify-between items-center mb-10">
+            <h2 className="text-3xl font-bold">Recent Student Reviews</h2>
+            <Link 
+              to="/reviews"
+              className="text-blue-600 hover:text-blue-800 font-medium"
+            >
+              View All
+            </Link>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -223,62 +284,76 @@ const Index = () => {
               />
             ))}
           </div>
-          
-          <div className="mt-10 text-center">
-            <Link 
-              to="/reviews"
-              className="inline-flex items-center justify-center text-sm font-medium text-white bg-primary px-5 py-2.5 rounded-full hover:bg-primary/90 transition-colors"
-            >
-              Read more reviews
-              <svg 
-                className="ml-2 h-4 w-4" 
-                fill="none" 
-                viewBox="0 0 24 24" 
-                stroke="currentColor"
-              >
-                <path 
-                  strokeLinecap="round" 
-                  strokeLinejoin="round" 
-                  strokeWidth={2} 
-                  d="M14 5l7 7m0 0l-7 7m7-7H3" 
-                />
-              </svg>
-            </Link>
-          </div>
         </div>
       </section>
       
       {/* Call to Action */}
-      <section className="py-16 bg-primary/5">
+      <section className="py-16 bg-gray-100">
         <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center">
-            <span className="inline-block px-4 py-1.5 mb-4 text-xs font-medium tracking-wide text-primary bg-primary/10 rounded-full">
-              Join our community
+            <span className="inline-block px-4 py-1.5 mb-4 text-xs font-medium tracking-wide text-blue-700 bg-blue-100 rounded-full">
+              Share Your Experience
             </span>
-            <h2 className="text-3xl font-display font-bold tracking-tight text-foreground mb-4">
-              Share your college experience
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              Help Other Students Make Better Decisions
             </h2>
-            <p className="text-lg text-muted-foreground mb-8">
-              Help future students make informed decisions by sharing your insights and experiences
+            <p className="text-lg text-gray-600 mb-8">
+              Your honest review can help thousands of students find their perfect college match
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link 
                 to="/signup"
-                className="inline-flex items-center justify-center text-sm font-medium text-white bg-primary px-6 py-3 rounded-full hover:bg-primary/90 transition-colors"
+                className="bg-blue-600 hover:bg-blue-700 text-white transition-colors px-6 py-3 rounded-md font-medium"
               >
-                Write a review
+                Write a Review
               </Link>
               <Link 
                 to="/how-it-works"
-                className="inline-flex items-center justify-center text-sm font-medium text-foreground bg-white border border-border px-6 py-3 rounded-full hover:bg-secondary transition-colors"
+                className="bg-white text-blue-700 border border-blue-200 hover:bg-blue-50 transition-colors px-6 py-3 rounded-md font-medium"
               >
-                Learn how it works
+                Learn How It Works
               </Link>
             </div>
           </div>
         </div>
       </section>
-    </>
+      
+      {/* FAQ Section - AdmissionShala Style */}
+      <section className="py-16 bg-white">
+        <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl font-bold text-center mb-12">Frequently Asked Questions</h2>
+          <div className="max-w-3xl mx-auto grid gap-6">
+            {[
+              { 
+                question: "How do I find reviews for a specific college?", 
+                answer: "You can use the search bar at the top of the page to find reviews for a specific college. You can also browse colleges by category or check our featured colleges section." 
+              },
+              { 
+                question: "How are college ratings calculated?", 
+                answer: "College ratings are calculated based on an aggregate of student reviews across multiple factors including academics, campus life, facilities, faculty, and value for money." 
+              },
+              { 
+                question: "Can I write a review if I'm a current student?", 
+                answer: "Yes! We encourage reviews from both current students and alumni. Current students provide valuable insights about the present state of the college." 
+              },
+              { 
+                question: "Are the reviews verified?", 
+                answer: "We have a verification process in place to ensure reviews are written by actual students. While we cannot verify 100% of reviews, we use various methods to maintain the integrity of our platform." 
+              },
+            ].map((faq, index) => (
+              <div 
+                key={index} 
+                className="border border-gray-200 rounded-lg p-6 animate-on-scroll bg-gray-50"
+                style={{ transitionDelay: `${index * 50}ms` }}
+              >
+                <h3 className="text-xl font-bold text-gray-900 mb-2">{faq.question}</h3>
+                <p className="text-gray-600">{faq.answer}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    </div>
   );
 };
 
