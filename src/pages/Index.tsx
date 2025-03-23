@@ -5,6 +5,8 @@ import Hero from '@/components/Hero';
 import ReviewCard from '@/components/ReviewCard';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Search, ArrowRight, GraduationCap, Building, MapPin, Users } from 'lucide-react';
 
 const Index = () => {
   const featuredColleges = [
@@ -103,10 +105,10 @@ const Index = () => {
                   Explore Colleges
                 </Link>
                 <Link 
-                  to="/reviews"
+                  to="/why-choose-us"
                   className="bg-blue-700 text-white hover:bg-blue-800 transition-colors border border-blue-200 px-6 py-3 rounded-md font-medium inline-flex items-center justify-center"
                 >
-                  Read Reviews
+                  Why Choose Us
                 </Link>
               </div>
             </div>
@@ -121,30 +123,30 @@ const Index = () => {
         </div>
       </section>
       
-      {/* Search Bar Section */}
+      {/* Search Bar Section - AdmissionShala style */}
       <section className="py-8 bg-white shadow-md relative -mt-6 rounded-t-3xl">
         <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-white rounded-lg shadow-lg p-6 animate-on-scroll">
             <h2 className="text-2xl font-bold text-center mb-6">Find College Reviews</h2>
             <div className="flex flex-col md:flex-row gap-4">
-              <div className="flex-1">
-                <input 
-                  type="text" 
-                  placeholder="Search by college name" 
-                  className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              <div className="flex-1 relative">
+                <Input
+                  placeholder="Search by college name"
+                  className="pl-10 py-6 rounded-full"
                 />
+                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
               </div>
               <div>
-                <button className="w-full md:w-auto bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-md font-medium transition-colors">
+                <Button className="w-full md:w-auto bg-blue-600 hover:bg-blue-700 py-6 px-8 rounded-full">
                   Search
-                </button>
+                </Button>
               </div>
             </div>
           </div>
         </div>
       </section>
       
-      {/* Popular Categories */}
+      {/* Popular Categories - AdmissionShala style */}
       <section className="py-12 bg-gray-50">
         <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-center mb-10">Popular Categories</h2>
@@ -165,16 +167,17 @@ const Index = () => {
         </div>
       </section>
       
-      {/* Featured Colleges - Card Based Layout */}
+      {/* Featured Colleges - AdmissionShala Card Based Layout */}
       <section className="py-12 bg-white">
         <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center mb-10">
             <h2 className="text-3xl font-bold">Featured Colleges</h2>
             <Link 
               to="/colleges"
-              className="text-blue-600 hover:text-blue-800 font-medium"
+              className="text-blue-600 hover:text-blue-800 font-medium flex items-center"
             >
               View All
+              <ArrowRight className="ml-2 h-4 w-4" />
             </Link>
           </div>
           
@@ -182,7 +185,7 @@ const Index = () => {
             {featuredColleges.map((college, index) => (
               <Card 
                 key={college.name}
-                className="animate-on-scroll overflow-hidden hover:shadow-lg transition-shadow"
+                className="animate-on-scroll overflow-hidden hover:shadow-lg transition-shadow border border-gray-200"
                 style={{ transitionDelay: `${index * 100}ms` }}
               >
                 <div className="aspect-video overflow-hidden">
@@ -193,8 +196,14 @@ const Index = () => {
                   />
                 </div>
                 <CardContent className="p-5">
-                  <h3 className="text-lg font-bold text-gray-900 mb-1">{college.name}</h3>
-                  <p className="text-sm text-gray-600 mb-3">{college.location}</p>
+                  <div className="flex items-start mb-2">
+                    <GraduationCap className="text-blue-600 h-5 w-5 mt-0.5 mr-2 flex-shrink-0" />
+                    <h3 className="text-lg font-bold text-gray-900">{college.name}</h3>
+                  </div>
+                  <div className="flex items-center text-sm text-gray-600 mb-3">
+                    <MapPin className="h-4 w-4 mr-1 flex-shrink-0" />
+                    {college.location}
+                  </div>
                   <div className="flex justify-between items-center mb-4">
                     <div className="flex items-center">
                       <span className="text-sm font-medium text-gray-900 mr-1">{college.rating}</span>
@@ -221,9 +230,19 @@ const Index = () => {
                       </span>
                     </div>
                   </div>
+                  <div className="flex items-center justify-between text-xs text-gray-500 mb-4">
+                    <div className="flex items-center">
+                      <Users className="h-3 w-3 mr-1" />
+                      <span>25k+ Students</span>
+                    </div>
+                    <div className="flex items-center">
+                      <Building className="h-3 w-3 mr-1" />
+                      <span>NAAC A+</span>
+                    </div>
+                  </div>
                   <Button
                     asChild
-                    className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 rounded"
+                    className="w-full rounded-full bg-blue-600 hover:bg-blue-700"
                   >
                     <Link to={`/colleges/${college.name.toLowerCase().replace(/\s+/g, '-')}`}>
                       View Details
@@ -257,16 +276,17 @@ const Index = () => {
         </div>
       </section>
       
-      {/* Recent Reviews */}
+      {/* Recent Reviews - AdmissionShala Style */}
       <section className="py-16 bg-white">
         <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center mb-10">
             <h2 className="text-3xl font-bold">Recent Student Reviews</h2>
             <Link 
               to="/reviews"
-              className="text-blue-600 hover:text-blue-800 font-medium"
+              className="text-blue-600 hover:text-blue-800 font-medium flex items-center"
             >
               View All
+              <ArrowRight className="ml-2 h-4 w-4" />
             </Link>
           </div>
           
@@ -287,7 +307,7 @@ const Index = () => {
         </div>
       </section>
       
-      {/* Call to Action */}
+      {/* Call to Action - AdmissionShala Style */}
       <section className="py-16 bg-gray-100">
         <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center">
@@ -303,13 +323,13 @@ const Index = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link 
                 to="/signup"
-                className="bg-blue-600 hover:bg-blue-700 text-white transition-colors px-6 py-3 rounded-md font-medium"
+                className="bg-blue-600 hover:bg-blue-700 text-white transition-colors px-6 py-3 rounded-full font-medium"
               >
                 Write a Review
               </Link>
               <Link 
                 to="/how-it-works"
-                className="bg-white text-blue-700 border border-blue-200 hover:bg-blue-50 transition-colors px-6 py-3 rounded-md font-medium"
+                className="bg-white text-blue-700 border border-blue-200 hover:bg-blue-50 transition-colors px-6 py-3 rounded-full font-medium"
               >
                 Learn How It Works
               </Link>
