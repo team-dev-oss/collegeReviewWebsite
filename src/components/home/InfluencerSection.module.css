@@ -1,0 +1,67 @@
+.influencerSection {
+    text-align: center;
+    padding: 20px;
+    background-color: #f7f7f7;
+    display:flex;
+  }
+  
+  .header {
+    margin-bottom: 40px;
+  }
+  
+  .header h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    text-align:left;
+  }
+  
+  .header p {
+    font-size: 1rem;
+    margin-bottom: 20px;
+  }
+  
+  .discoverButton {
+    background-color: #6c63ff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .influencers {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 40px;
+  }
+  
+  .influencerCard {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 200px;
+  }
+  
+  .stats {
+    margin-top: 10px;
+    font-weight: bold;
+  }
+  
+  .footer {
+    margin-top: 40px;
+  }
+  
+  .footer p {
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+  }
+  
+  .logos {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  
