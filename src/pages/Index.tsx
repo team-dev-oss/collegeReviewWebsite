@@ -45,7 +45,7 @@ const Index = () => {
       program: 'Computer Science',
       year: 'Class of 2022',
       rating: 5,
-      review: 'My experience at Harvard was transformative. The computer science program is rigorous but extremely rewarding. The professors are world-class experts who are surprisingly accessible. The community is collaborative rather than cutthroat, and I formed lifelong friendships and professional connections.',
+      review: "My experience at Harvard was transformative. The computer science program is rigorous but extremely rewarding. The professors are world-class experts who are surprisingly accessible. The community is collaborative rather than cutthroat, and I formed lifelong friendships and professional connections.",
     },
     {
       name: 'Sophia Chen',
@@ -61,7 +61,7 @@ const Index = () => {
       program: 'Physics',
       year: 'Class of 2021',
       rating: 5,
-      review: 'MIT set the gold standard for physics education. The coursework is challenging, but the collaborative atmosphere makes it manageable. Research opportunities abound, and I was able to work alongside Nobel laureates. The problem-solving skills I developed have been invaluable in my career.',
+      review: "MIT set the gold standard for physics education. The coursework is challenging, but the collaborative atmosphere makes it manageable. Research opportunities abound, and I was able to work alongside Nobel laureates. The problem-solving skills I developed have been invaluable in my career.",
     },
   ];
 
