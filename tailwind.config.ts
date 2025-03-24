@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 import type { Config } from "tailwindcss"
 
 const config = {
@@ -80,6 +81,8 @@ const config = {
 
 export default config
 =======
+=======
+>>>>>>> campus-guru/main
 
 import type { Config } from "tailwindcss";
 
@@ -201,4 +204,7 @@ export default {
 	},
 	plugins: [require("tailwindcss-animate")],
 } satisfies Config;
+<<<<<<< HEAD
+>>>>>>> campus-guru/main
+=======
 >>>>>>> campus-guru/main

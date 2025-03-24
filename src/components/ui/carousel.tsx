@@ -1,6 +1,9 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 "use client"
 
+=======
+>>>>>>> campus-guru/main
 =======
 >>>>>>> campus-guru/main
 import * as React from "react"

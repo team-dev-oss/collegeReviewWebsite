@@ -2,17 +2,23 @@
   "$schema": "https://ui.shadcn.com/schema.json",
   "style": "default",
 <<<<<<< HEAD
+<<<<<<< HEAD
   "rsc": true,
   "tsx": true,
   "tailwind": {
     "config": "tailwind.config.ts",
     "css": "src/app/globals.css",
 =======
+=======
+>>>>>>> campus-guru/main
   "rsc": false,
   "tsx": true,
   "tailwind": {
     "config": "tailwind.config.ts",
     "css": "src/index.css",
+<<<<<<< HEAD
+>>>>>>> campus-guru/main
+=======
 >>>>>>> campus-guru/main
     "baseColor": "slate",
     "cssVariables": true,
@@ -21,12 +27,18 @@
   "aliases": {
     "components": "@/components",
 <<<<<<< HEAD
+<<<<<<< HEAD
     "utils": "@/lib/utils"
 =======
+=======
+>>>>>>> campus-guru/main
     "utils": "@/lib/utils",
     "ui": "@/components/ui",
     "lib": "@/lib",
     "hooks": "@/hooks"
+<<<<<<< HEAD
+>>>>>>> campus-guru/main
+=======
 >>>>>>> campus-guru/main
   }
 }

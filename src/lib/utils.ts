@@ -1,5 +1,9 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { type ClassValue, clsx } from "clsx"
+=======
+import { clsx, type ClassValue } from "clsx"
+>>>>>>> campus-guru/main
 =======
 import { clsx, type ClassValue } from "clsx"
 >>>>>>> campus-guru/main

@@ -1,5 +1,6 @@
 {
 <<<<<<< HEAD
+<<<<<<< HEAD
   "compilerOptions": {
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
@@ -25,6 +26,8 @@
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx","**/*.jsx","**/*.js", ".next/types/**/*.ts"],
   "exclude": ["node_modules"]
 =======
+=======
+>>>>>>> campus-guru/main
   "files": [],
   "references": [
     { "path": "./tsconfig.app.json" },
@@ -42,5 +45,8 @@
     "noUnusedLocals": false,
     "strictNullChecks": false
   }
+<<<<<<< HEAD
+>>>>>>> campus-guru/main
+=======
 >>>>>>> campus-guru/main
 }
