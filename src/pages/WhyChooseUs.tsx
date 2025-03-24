@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Check } from 'lucide-react';
 
@@ -63,10 +62,19 @@ const WhyChooseUs = () => {
               <h2 className="text-4xl md:text-5xl font-bold mb-6">
                 We Understand What Drives You
               </h2>
-              <p className="text-lg mb-8 text-white/90">
+              {/* <p className="text-lg mb-8 text-white/90">
                 With so many educational options available, choosing the right college can be overwhelming. 
                 Our platform provides authentic reviews and insights from real students to help you make the 
                 best decision for your future.
+              </p> */}
+              <p className="text-lg mb-8 text-white/90">
+              It is not about how hard you work but it is about how smartly you manage your time, 
+              resources, mind, and efforts to work together for a better result.
+              </p>
+              <p className="text-lg mb-8 text-white/90">
+              In the present era, time is money, and to value your money and efforts, 
+              we bring forth admissionshala.com, an admission consultant in ____________. 
+              We are an extraordinarily selective digital platform fabricated specially for aspiring students to counsel,guide, and help in career mapping.
               </p>
               
               <div className="space-y-4">
@@ -167,6 +175,7 @@ const WhyChooseUs = () => {
                     <button
                       key={star}
                       type="button"
+                      aria-label={`Rate ${star} stars`}
                       className="text-yellow-400 hover:text-yellow-500 focus:outline-none"
                     >
                       <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">

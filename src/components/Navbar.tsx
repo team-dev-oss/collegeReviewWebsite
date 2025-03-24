@@ -33,7 +33,7 @@ const Navbar = () => {
             to="/" 
             className="flex items-center space-x-2"
           >
-            <span className="text-xl font-display font-bold text-foreground">Campus<span className="text-primary">Review</span></span>
+            <span className="text-xl font-display font-bold text-foreground">Campus<span className="text-primary">Guru</span></span>
           </Link>
 
           {/* Desktop Navigation */}
