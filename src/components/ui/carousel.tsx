@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 "use client"
 
+=======
+>>>>>>> campus-guru/main
 import * as React from "react"
 import useEmblaCarousel, {
   type UseEmblaCarouselType,
